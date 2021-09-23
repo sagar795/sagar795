@@ -10,6 +10,11 @@ services:
       MYSQL_DATABASE: my_wp_database
       MYSQL_USER: my_wp_user
       MYSQL_PASSWORD: 123s
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
     volumes:
       - mysql_vol:/var/lib/mysql
 
@@ -28,10 +33,6 @@ services:
       WORDPRESS_DB_NAME: my_wp_database
     volumes:
       ["./:/var/www/html"]
-    healthcheck:
-            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-            timeout: 20s
-            retries: 10
-
+    
 volumes:
   mysql_vol: {}
