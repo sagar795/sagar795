@@ -10,8 +10,6 @@ services:
       MYSQL_DATABASE: my_wp_database
       MYSQL_USER: my_wp_user
       MYSQL_PASSWORD: 123s
-    healthcheck:
-      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
     volumes:
       - mysql_vol:/var/lib/mysql
 
