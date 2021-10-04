@@ -5,7 +5,7 @@ services:
   wordpess_db:
     build: .
     ports:
-      - "80"
+      - "8060:80"
     restart: always
     volumes:
       - mysql_vol:/var/lib/mysql
