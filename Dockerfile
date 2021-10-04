@@ -6,3 +6,4 @@ RUN chmod +x /script.sh
 RUN /script.sh
 EXPOSE 80
 CMD ["apache2ctl","-D","FOREGROUND"]
+ENTRYPOINT service mysql restart && service apache2 restart && bash
