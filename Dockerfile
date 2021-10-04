@@ -7,6 +7,7 @@ COPY ./info.php /var/www/html/info.php
 RUN apt-get install wget -y
 RUN wget http://wordpress.org/latest.tar.gz
 RUN tar -xzvf latest.tar.gz
+RUN mkdir /var/www/html/mysite.com
 RUN cp -R wordpress /var/www/html/mysite.com
 RUN chown -R www-data:www-data /var/www/html/mysite.com
 RUN chmod -R 775 /var/www/html/mysite.com
